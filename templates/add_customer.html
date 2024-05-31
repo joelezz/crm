@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Add Customer</h1>
+<form action="{{ url_for('add_customer') }}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required />
+    <label for="email">Email:</label>
+    <input type="email" name="email" required />
+    <label for="phone">Phone:</label>
+    <input type="text" name="phone" required />
+    <label for="notes">Notes:</label>
+    <input type="text" name="notes" />
+    <button type="submit">Add Customer</button>
+</form>
+<br>
+<a href="{{ url_for('customers') }}" class="button is-primary">Customer list</a>
+
+{% endblock %}
+ß

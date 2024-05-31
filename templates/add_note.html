@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block add_note %}
+<h1 class="title">Add Note for Customer: {{ customer.name }}</h1>
+<form action="{{ url_for('add_note_page', customer_id=customer.id) }}" method="POST">
+    <input type="hidden" name="customer_id" id="customer_id" value="{{ customer.id }}">
+    <label for="note">Note:</label>
+    <textarea name="note" id="note" required></textarea>
+    <button type="submit">Add Note</button>
+</form>
+{% endblock %}
