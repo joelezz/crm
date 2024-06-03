@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+    <h1 class="title">Join us!</h1> 
+    <h4 class="subtitle">To join our great CRM 1.0 user base, you must send us money.</h4>     
+        This valuable service costs as much as <strong>0,55USD</strong> for a lifetime use.</p>
+        <br>
+    <div class="container">
+        <button class="button is-red" id="submitBtn">Purchase!</button>
+    </div>
+</section>
+<script>
+    // Initialize Stripe.js with your publishable key
+    const stripePublicKey = '{{ stripe_publishable_key }}';
+    const stripe = Stripe(stripePublicKey); // Initialize Stripe with the key
+
+    document.getElementById('submitBtn').addEventListener('click', function () {
+        fetch('/create-checkout-session', {
+            method: 'POST',
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (session) {
+            if (session.error) {
+                alert(session.error);
+            } else {
+                return stripe.redirectToCheckout({ sessionId: session.sessionId });
+            }
+        })
+        .then(function (result) {
+            if (result.error) {
+                alert(result.error.message);
+            }
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
+    });
+</script>
+{% endblock %}

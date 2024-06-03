@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Contact Information for {{ customer.name }}</h1>
+
+<form action="{{ url_for('add_contact_data', customer_id=customer.id) }}" method="post">
+  <label for="contact_date">Contact Date:</label>
+  <input type="date" name="contact_date" required>
+  <br>
+  <label for="discussion">Discussion:</label>
+  <textarea name="discussion" rows="5" required></textarea>
+  <br>
+  <label for="next_steps">Next Steps:</label>
+  <textarea name="next_steps" rows="5" required></textarea>
+  <br>
+  <button type="submit">Add Contact Info</button>
+</form>
+<br>
+
+<table>
+    <th>Date</th>
+    <th>Details</th>
+    <th>Next steps</th>
+    {% for data in contact_data %}
+        <tr>
+            <td>{{date.data}}</td>
+            <td>{{contact.data}}</td>
+            <td>{{next_steps.data}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<table>
+    <tr>
+        <td>
+        <a href="{{ url_for('manage_customer', customer_id=customer.id) }}" class="button is-primary">Update</a>
+    </td>
+      <br>
+    <td>    <a href="{{ url_for('delete_customer',  customer_id=customer.id) }}" class="button is-primary">Delete</a>
+    </td>
+    <td>
+    <a href="{{ url_for('manage') }}" class="button is-primary">Back</a>
+    </td>
+    </tr>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Manage Customer data for: <strong>{{ customer.name }}</strong></h1>
+<table>
+<tr>
+    <td>
+    <a href="{{ url_for('manage_customer', customer_id=customer.id) }}" class="button is-primary">Update</a>
+
+</td>
+</tr>
+  <br>
+  <tr>
+    <td>
+      <a href="{{ url_for('add_contact_data',  customer_id=customer.id) }}" class="button is-primary">Add Contact Data</a>
+  </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="{{ url_for('delete_customer',  customer_id=customer.id) }}" class="button is-primary">Delete</a>
+  </td>
+  </tr>
+  <tr>
+    <td>
+
+      <a href="{{ url_for('customers') }}" class="button is-primary">Back</a>
+      
+      </td>
+  </tr>
+
+
+</tr>
+</table>
+
+{% endblock %}

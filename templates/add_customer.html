@@ -11,6 +11,7 @@
     <input type="text" name="phone" required />
     <label for="notes">Notes:</label>
     <input type="text" name="notes" />
+    <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />  
     <button type="submit">Add Customer</button>
 </form>
 <br>

@@ -1,16 +1,6 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1 class="title">Manage Customer data for: {{ customer.name }}</h1>
-
-<!-- Form to delete customer -->
-<form action="{{ url_for('delete_customer', customer_id=customer.id) }}" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <label>Delete customer: {{ customer.name }}</label>
-    <button type="submit">DELETE Customer</button>
-</form>
 
 <!-- Form to delete note -->
+<!-- 
 <form action="{{ url_for('delete_note_page', customer_id=customer.id, note_id=note.id) }}" method="post">
     <input type="hidden" name="_method" value="DELETE">
     <label for="note">Delete Note:</label>
@@ -20,19 +10,29 @@
         {% endfor %}
     </select>
     <button type="submit">DELETE Note</button>
-</form>
+</form> 
+-->
+{% extends "base.html" %}
 
-<!-- Form to update customer data -->
-<form action="{{ url_for('manage_customer', customer_id=customer.id) }}" method="post">
-    <input type="hidden" name="_method" value="PUT">
-    <label for="name">Name:</label>
-    <input type="text" name="name" value="{{ customer.name }}">
-    <label for="email">Email:</label>
-    <input type="email" name="email" value="{{ customer.email }}">
-    <label for="phone">Phone:</label>
-    <input type="text" name="phone" value="{{ customer.phone }}">
-    <label for="notes">Notes:</label>
-    <input type="text" name="notes" value="{{ customer.notes }}">
-    <button type="submit">Update Customer Data</button>
-</form>
+{% block content %}
+<h1 class="title">Manage Customer data for: <strong>{{ customer.name }}</strong></h1>
+<table>
+<tr>
+    <td>
+
+</td>
+  <br>
+<td>
+
+</div>
+</td>
+<td>
+
+<a href="{{ url_for('customers') }}" class="button is-primary">Back</a>
+
+</td>
+
+</tr>
+</table>
+
 {% endblock %}

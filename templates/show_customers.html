@@ -23,12 +23,12 @@
             <td>{{ customer.email }}</td>
             <td>{{ customer.phone }}</td>
             <td>{{ customer.notes | safe }}</td>
-            <td><a href="{{ url_for('manage_customer', customer_id=customer.id) }}" class="button is-primary">MANAGE</a></td>
+            <td><a href="{{ url_for('manage', customer_id=customer.id) }}" class="button is-primary">MANAGE</a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 <div>
-    <a href="{{ url_for('add_customer') }}" class="button is-primary">Add Customer</a>
+    <a href="{{ url_for('add_customer') }}" class="button is-primary">Add New Customer</a>
 </div>
 {% endblock %}

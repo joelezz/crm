@@ -1,9 +1,11 @@
+<!-- templates/success.html -->
+
 {% extends "base.html" %}
 
 {% block content %}
     <h1 class="title">Dashboard</h1>
-    <p>Welcome, {{ user.username }}!</p>
-    <br>
+    <p>Payment was succesful.</p>
+    <p>Welcome to CRM 1.0, {{ user.username }}!</p>
     <a href="{{ url_for('customers') }}" class="button is-primary">Customers</a>
 
 {% endblock %}
